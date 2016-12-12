@@ -1,0 +1,45 @@
+diff -r c2708ab67d37 src/web/daemon/core.py
+--- a/src/web/daemon/core.py    Mon Apr 13 12:58:13 2015 +0300
++++ b/src/web/daemon/core.py    Mon Apr 13 14:48:20 2015 +0300
+@@ -1,6 +1,7 @@
+ #!/usr/bin/env python
+ #from data_provisioning.src.common.core import log
+ from utilities.logging.core import log
++import traceback
+ 
+ def updateRequestStatus(resources):
+     '''updates the status for the given transactionId'''
+@@ -21,11 +22,13 @@
+     except Exception,e:
+         error = 'operation:updateRequestStatus,desc: failed to update request status %s,error:%s' %(str(transactionId),str(e),) 
+         log(resources,error,'error')
++        log(resources, traceback.format_exc(),'error')
++    else:
+         try:
+             cursor.close()
+-        except Exception:
+-            pass
+-        raise e
++        except Exception, err:
++            log(resources, traceback.format_exc(), 'error')
++
+ 
+ 
+ def getCallBack(resources):
+@@ -99,9 +102,13 @@
+     except Exception,e:
+         error = 'operation:processRequest,desc: failed to process provisioning response %s ,error:%s' %(str(transactionId), str(e))
+         log(resources ,error, 'error')
+-        raise e
++        log(resources, traceback.format_exc(),'error')
+     else:
+-        pass
++        try:
++            cursor.close()
++        except Exception, err:
++            log(resources, traceback.format_exc(), 'error')
++
+ 
+ 
+ def setup(resources):
+

@@ -1,0 +1,17 @@
+--- hxc_proxy/100/site_tango_100.py	Sun May 31 20:20:11 2015 +0300
++++ hxc_proxy/100/site_tango_100.py	Thu Jun 25 19:36:24 2015 +0300
+@@ -11,12 +11,13 @@
+ 
+ port = PORTS['hxc_proxy']['100']
+ threads = THREADS['hxc_proxy']
++HOST_NAME = __import__('socket').gethostname()
+ 
+ hxcServer = MenuService()
+ hxcProxyService = internet.TCPServer(port, server.Site(hxcServer))
+ hxcProxyService.setName('hxc_proxy_100')
+ application = service.Application('hxc_proxy_100')
+-logfile = DailyLogFile("logs/twistd.log-100-hxcproxy",".")
++logfile = DailyLogFile("logs/twistd.log-100-hxcproxy-{}".format(HOST_NAME), ".")
+ application.setComponent(ILogObserver, FileLogObserver(logfile).emit)
+ hxcProxyService.setServiceParent(application)
+ reactor.suggestThreadPoolSize(threads)

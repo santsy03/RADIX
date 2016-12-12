@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}Audit Trail, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}Audit Trail, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}Audit Trail | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}Audit Trail{% endblock %}
+
+{% block javascript_code %}
+<script type="text/javascript" src="/static/js/audittrail.js"></script>
+{% endblock %}
+
+{% block primary %}
+<div class='results'>
+	<div class="resultstitle">Audit Trail</div>
+	<form id="auditsearch" method="post">
+         {% csrf_token %}
+         <div class='cells'>Date From: <input type="text" id="from" /> To: <input type="text" id="to" />
+         Having text: <input id="txtsearch" type="textbox" value="">
+         <button id="btngenerate" type="submit" class="button"> Search </button> <span id="results"></span></div>
+    </form>
+	<div class='translist' id="id_translist">
+		{% if results|length %}
+			<div class='table'>
+				<div class='headrow'>
+					<div>User Name</div>
+					<div>Subscriber</div>
+					<div>Service Name</div>
+					<div>Package Name</div>
+					<div>Price</div>
+					<div>Created Date/Time</div>
+				</div>
+				{% for result in results %}
+					<div class="{% cycle 'row' 'altrow' %}">
+						<div>{{ result.username }}</div>
+						<div>{{ result.msisdn }}</div>
+						<div>{{ result.servicename }}</div>
+						<div>{{ result.packagename }}</div>
+						<div>{{ result.price }}</div>
+						<div>{{ result.createddatetime }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="norecords">
+				No transactions found.
+			</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+{% block secondary %}
+
+{% endblock %}

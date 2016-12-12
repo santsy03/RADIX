@@ -1,0 +1,11 @@
+--- menus/prepaid/sample_data.py	Fri Jun 19 19:13:06 2015 +0300
++++ menus/prepaid/sample_data.py	Fri Jun 19 19:28:47 2015 +0300
+@@ -752,7 +752,7 @@
+                   "txt1": "0. Next Page\n#. Previous Menu",
+                   "txt2": "0. Tohiny\n#. Raha hiverina @ menu teo aloha",
+                   "txt3": "0. Suivant\n#. Menu Precedent",
+-                  "key": "",
++                  "key": 0,
+                   "source": "",
+                   "nextmenuid": "1-0-3-1223"
+                 }

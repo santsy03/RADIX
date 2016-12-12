@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="title" content="{% block page_meta_title %}{% endblock %}" /> 
+<meta name="description" content="{% block page_meta_description %}{% endblock %}" /> 
+<title>{% block page_title %}{% endblock %} - MG</title>
+
+<link href="/static/css/blitzer/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/jquery/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="/static/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/jquery/colorbox.js"></script>
+<link rel="icon" href="/static/images/favicon.png" type="image/png" /> 
+<link href="/static/css/styles.css" media="screen" rel="stylesheet"/>
+<link href="/static/css/colorbox.css" media="screen" rel="stylesheet"/>
+{% block javascript_code %}{% endblock %}
+</head>
+<body class="base">{% csrf_token %}
+	<div class="container">
+		<div class="top">
+			<div class="spanleft">
+				<img src="/static/images/logo1.png" width="181" height="80" alt="Airtel Logo" />
+			</div>
+			<div class="spanmiddle">&nbsp;</div>
+			<div class="spanright">Airtel Customer Self Care</div>
+		</div>
+		<div class="middle">
+			<div class="dropdownx">		
+				<ul id="user-menu">
+					<li><a href="#"> {{ user_full_names }} &#9660;</a>
+						<ul id="sub-men">
+							{% if user.is_staff %}
+							<li><a title="View Audit Trail" href="/audittrail/">View Audit Trail</a></li>
+							{% endif %}
+							
+							{% if user.is_staff %}
+							<li><a title="Manage Users" href="/admin/">Manage Users</a></li>
+							{% else %}
+							<li><a title="Change Password" href="/accounts/change_password/">Change Password</a></li>
+							{% endif %}
+							
+							<li><a title="Log out" href="/logout/">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="contenttop">
+				<ul class="nav">
+					<li {% if menuselected == '1' %}class="selected"{% endif %}><a href="/3g/" title="Pretups">3G</a></li>
+					<li {% if menuselected == '2' %}class="selected"{% endif %}><a href="/me2u/" title="Reports">Me2u</a></li>
+				</ul>
+			</div>
+			<div class="contentbottom">
+				{% block primary %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	{% block secondary %} {% endblock %}
+</body>
+
+</html>

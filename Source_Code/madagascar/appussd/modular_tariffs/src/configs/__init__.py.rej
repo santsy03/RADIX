@@ -1,0 +1,23 @@
+***************
+*** 114,122 ****
+  PACK_TIME_MAPPING['1']['dedicated_account'] = '2'
+  
+  
+  SQL['package_details'] = 'select NAME, START_TIME, STOP_TIME from modular_package where id = :package'
+  
+- 
+  MESSAGES['1'] = {}
+  MESSAGES['1']['5'] = 'Tontosa ny fangatahanao hampiasa ny CLUBSMS.Ny SMS 58 dia azonao alefa amin\'ny laharana Airtel ary manankery 1 andro.SMS tavela:*999*100*2#.'
+  MESSAGES['1']['3'] = 'Tsy tontosa ny fangatahanao. Azafady, avereno afaka fotoana fohy. Misaotra tompoko'
+--- 140,150 ----
+  PACK_TIME_MAPPING['1']['dedicated_account'] = '2'
+  
+  
++ SQL['stored_function'] = 'generate_modular_id'
+  SQL['package_details'] = 'select NAME, START_TIME, STOP_TIME from modular_package where id = :package'
++ SQL['update_request'] = 'update MODULAR_REQUEST set RESPONSE = :status, COMPLETED_AT = systimestamp where ID = :trans_id'
+  
++ MESSAGES['default_sender'] = 'Radix'
+  MESSAGES['1'] = {}
+  MESSAGES['1']['5'] = 'Tontosa ny fangatahanao hampiasa ny CLUBSMS.Ny SMS 58 dia azonao alefa amin\'ny laharana Airtel ary manankery 1 andro.SMS tavela:*999*100*2#.'
+  MESSAGES['1']['3'] = 'Tsy tontosa ny fangatahanao. Azafady, avereno afaka fotoana fohy. Misaotra tompoko'

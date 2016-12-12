@@ -1,0 +1,11 @@
+--- __init__.py	Mon Jun 22 12:34:50 2015 +0300
++++ __init__.py	Mon Jun 22 21:18:17 2015 +0300
+@@ -7,7 +7,7 @@
+ CHANNEL = 'direct_cmb'
+ 
+ HOME = {}
+-HOME[CURRENT] = '/appussd/direct_cmb'
++HOME[CURRENT] = '/appussd/direct_cmb_mg'
+ HOME['dev'] = '/appussd/test/direct_cmb'
+ 
+ 

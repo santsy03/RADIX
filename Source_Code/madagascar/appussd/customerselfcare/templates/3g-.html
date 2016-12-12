@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}Airtel Internet, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}Airtel Internet, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}Airtel Internet | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}Airtel Internet{% endblock %}
+
+{% block javascript_code %}
+<script type="text/javascript" src="/static/js/form3g.js"></script>
+{% endblock %}
+
+{% block primary %}
+<div class="search">
+	<div class="searchbox">
+	    <form id="searchform" class="searchform">
+                {% csrf_token %}    
+		Search Subscriber:            
+		<input id="subscriberno" class="searchfield" type="text" value="Search..." onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" />
+		<input class="searchbutton" type="submit" value="Go" />
+	    </form>
+	</div>
+	
+	<div id="loading" class="progress">
+		<img src='/static/images/ajax-loader.gif'>
+	</div>
+	
+	<div id="messages" class="messages"></div>
+	
+	<div class="fieldset">
+		<div class="controlholdernoborder">
+			<div class="searchrow">
+				<div class="searchlabel">Subscriber Number : </div> <div class="searchinput" id="id_subscriberno">&nbsp;</div> 
+				<div class="searchlabel">Prepaid : </div> <div class="searchinput" id="id_prepaid">&nbsp;</div> 
+				<div class="searchlabel">Balance : </div> <div class="searchinput" id="id_balance">&nbsp;</div>
+			</div>
+			
+			<div id="tableholder" class="controlholder">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="actions">
+		<button id="btnadd" type="button" class="button red">Subscribe to a Service</button> &nbsp;
+		<button id="btnhistory" type="button" class="button red">Subscriber History</button> &nbsp;
+		<button id="btnrenewhistory" type="button" class="button red">Renew History</button> &nbsp;
+		<button id="btnrenewstop" type="button" class="button red">Stop Auto-renew</button>
+	</div>
+</div>
+{% endblock %}
+
+{% block secondary %}
+<div style="display:none">
+    <div id="popup1">
+        <div id="servicemessages"></div>
+            <div class="label"><label for="">3G Service</label></div>
+            <div class="input">{{ form.service }}</div>
+            
+            <div id="tdbundles">
+                    <div class="label"><label for="">Internet Bundles</label></div>
+                    <div class="input">{{ form.bundles }}</div>
+            </div>                
+                
+            <div id="tdautorenew">
+                    <div class="label"><label for="">Auto renew</label></div>
+                    <div class="input">{{ form.autorenew }}</div>
+            </div>
+            <div class="buttonholder" style="padding: 20px 0px 10px 0px;">
+            <div id="addSubscription">
+    		<button id="btnsave" onclick="javascript:addSubscription();" type="button" class="button red">Add Subscription</button>
+    	    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

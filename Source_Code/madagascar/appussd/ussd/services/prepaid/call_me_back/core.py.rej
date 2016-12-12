@@ -1,0 +1,18 @@
+***************
+*** 211,218 ****
+      time_now = str(time).split(' ')[0]
+      print "TIME NOW : %s" % str(time_now)
+      if time_1 <= time_now <= time_2:
+-         #message = responses['message_1'][language] % str(recipient)
+-         message = responses['message_2'][language] % str(recipient)
+          return message
+      else:
+          return a_party_message
+--- 211,217 ----
+      time_now = str(time).split(' ')[0]
+      print "TIME NOW : %s" % str(time_now)
+      if time_1 <= time_now <= time_2:
++         message = responses['message_1'][language] % str(recipient)
+          return message
+      else:
+          return a_party_message

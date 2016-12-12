@@ -1,0 +1,22 @@
+other_bundles = '1037'
+da_mappings = {}
+da_mappings['1011'] = 'volume'
+da_mappings['1018'] = 'facebook'
+da_mappings['1019'] = 'twitter'
+da_mappings['1020'] = 'whatsapp'
+da_mappings['1112'] = 'telescopic'
+da_mappings['1113'] = 'telescopic'
+da_mappings['1114'] = 'telescopic'
+da_mappings['1030'] = 'regional'
+da_mappings['1115'] = 'unlimited'
+# old_da_mappings['1013'] = 'night'
+da_mappings['1150'] = 'night'
+da_mappings['1151'] = 'night'
+da_mappings['901'] = 'Facebook OTI'
+da_mappings['902'] = 'YouTube OTI'
+da_mappings['903'] = 'Twitter OTI'
+da_mappings['904'] = 'Airtel App Store OTI'
+da_mappings['906'] = 'Airtel Live Portal OTI'
+da_mappings['907'] = 'Wynk OTI'
+no_ucut_update_package_ids = ['194','195','197','199','201','203','205','207','220','221','222','223','224','225','226','227','228','229','230','231','234','247','248','249','232','233','235','251','252','253','209','211','213','215','217','218','219','254','255','256','376','377','378','379','380','381','382','383','384']
+

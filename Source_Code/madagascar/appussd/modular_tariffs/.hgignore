@@ -1,0 +1,7 @@
+syntax: glob
+.*.swp
+*swp
+*pyc
+*.pid
+*.log
+*.orig

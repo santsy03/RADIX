@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+ 
+{% block title %}{{ title }} | {% trans 'Airtel Customer Self Care' %}{% endblock %}
+ 
+{% block extrastyle %}
+<style>
+#header { 
+	background: rgb(237,28,36);
+	border-bottom: solid 3px #999;
+}
+#branding h1 {
+	color: #fff;
+}
+.module h2, .module caption, .inline-group h2 { 
+	background: #ED1C24; 
+	color: #fff; 
+}
+a.section:link, a.section:visited { 
+	color: #666666;
+} 
+.selector .selector-available h2 {
+    background: #ED1C24; 
+	color: #fff;
+}
+</style>
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">{% trans 'Airtel Customer Self Care' %}</h1>
+{% endblock %}
+ 
+{% block nav-global %}
+ <div id="other_links"><a href="/3g/">3G Home</a></div>
+
+{% endblock %}
+
+{# Footer copyright (right side) #}
+{% block copyright %}
+  <div>Copyright &copy; 2014 Developed by <a href="http://radix.co.ke" target="_blank">Radix</a> </a>
+{% endblock %}
