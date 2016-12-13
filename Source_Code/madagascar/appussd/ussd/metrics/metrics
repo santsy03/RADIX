@@ -1,0 +1,21 @@
+time
+=====
+heartBeat.period()
+
+from metrics import metricHandler
+    from metrics.metricHandler import heartBeat
+    from metrics import config
+    hb = heartBeat()
+    namespace = config.incrementalBillingTemplate
+    hb.period(namespace,billStart)
+    
+    
+    
+    
+
+counter:
+========
+heartBeat.beat()
+
+_metric = config.postpaid_incremetalFailureTemplate.substitute(bundle=name)
+hb.beat(_metric)

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}Device Bundles, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}Device Bundles, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}Device Bundles | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}Device Bundles{% endblock %}
+
+{% block primary %}
+<div id = "c">
+	<div id="loader"><img src="" /></div>
+	
+	<form enctype="multipart/form-data" method = "post" action = "/devicebundleform/" id="DeviceActivation" name = "DeviceActivation" >{% csrf_token %}
+		<h3>Device Bundle</h3>
+		<table align = "center">
+			<tr>
+				<td align="right">Provisioning Type: </td>
+			 <td><input type="radio" name = "radio" value = "one" class = "type" id = "singleProvisioning" checked/>Single
+			 <input type="radio" name = "radio" value = "many" class = "type" id = "multiProvisioning"  />Multiple</td>
+			</tr><tr></tr>
+			
+			<tr >
+				<td align="right">Subscriber MSIDN: </td>
+				<td align="left"><input type="Text" name="msisdn" id = "subscribermsisdn" required autofocus/>
+				<input required type="file" name="file" id = "subscriberfile"/> </td>
+			</tr><tr></tr>
+			</tr><tr></tr>
+			<tr>
+				<td align="right">Device Bundle: </td>
+				<td align="left">
+
+				<select id="devicebundle" name="packageID" required>
+				    {% for devicebundle in bundle %}
+					<option value="{{devicebundle.id}}">{{devicebundle.package_name}}</option>
+					
+				    {% endfor %}
+				</select>
+				</td></tr><tr></tr>
+			<tr><td align = "right">Auto Renew</td>
+			     <td align = "left">
+				<select id = "auto" name = "auto">
+					<option value = "0">No</option>
+					<option value = "1">Yes</option>
+				</select>
+				<input type = "hidden" name = "action" id = "action" value = "" />
+			       
+				</td>
+			</tr><tr></tr>
+			<tr>
+				<td />
+				<td align="left"><input type="submit" value="Activate" id = "activate"/></td>
+			</tr>
+		</table>
+	</form>
+<div id="results"></div>
+</div>
+<div id = "respmsg" class ="respmsg">{{ msg }}</div>
+{% if msg|length %}
+<div id = "fileurl"><a href = "{{ fileurl }}">Download Report</a></div>
+{% endif %}
+<script type="text/javascript">
+$(document).ready(function() {
+	    $("#loader").hide();
+       $("#subscriberfile").hide();
+        $('#singleProvisioning').attr('checked',true);
+	$("#singleProvisioning").on("click", function(){
+	   $("#subscriberfile").hide();
+	   $("#subscribermsisdn").show();
+           document.DeviceActivation.subscribermsisdn.focus();
+       });
+    $("#multiProvisioning").on("click", function(){
+	   $("#subscribermsisdn").hide();
+	   $("#subscriberfile").show();
+       });
+           
+$("#activate").on("click", function(){
+		//e.preventDefault();
+		 
+    		if($("#DeviceActivation input[type='radio']:checked").val() == "one"){
+				$('#subscriberfile').removeAttr('required');
+				$('#subscribermsisdn').attr('required','required');
+				if(document.DeviceActivation.subscribermsisdn.value == "")
+				alert("Please enter the subscriber MSISDN");
+				else if(document.DeviceActivation.subscribermsisdn.value.length < 9)
+				alert("Please enter a valid MSISDN");
+				else  if(document.DeviceActivation.devicebundle.value == "")
+				alert("Please select a device bundle");
+				else 
+				loading();
+    		        }else{
+				$('#subscriberfile').attr('required','required');
+				$('#subscribermsisdn').removeAttr('required');
+				if(document.DeviceActivation.subscriberfile.value == "")
+				alert("Please select a text file with subscriber MSISDNs");
+				else if(document.DeviceActivation.devicebundle.value == "")
+				alert("Please select a device bundle");
+				else 
+				loading();
+		    
+		      }
+			                 
+                       
+  });	
+});
+function loading(){
+			$("#loader").show();
+			$("#DeviceActivation").fadeOut(0.8, 'swing')
+                        $("#DeviceActivation").fadeOut(0.8, function(){
+                        	$("#results").append('<p>Processing request...</p>');
+                        });                        
+                        		
+			$.blockUI({ css: { 
+			    border: 'none', 
+			    padding: '15px', 
+			    backgroundColor: '#000', 
+			    '-webkit-border-radius': '10px', 
+			    '-moz-border-radius': '10px', 
+			    opacity: 1.2, 
+			    color: '#fff' 
+			} });
+			$("#loader > img").attr("src", "/include/images/checkmark.png");
+                        $("#loader").fadeIn(1);
+			//setTimeout("$('#results').append('<p><strong>Request completed successfully</strong>!!</p>')",10); 
+			$("#loader").hide();
+   }
+</script>
+
+{% endblock %}

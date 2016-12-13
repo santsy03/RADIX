@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="title" content="Airtel Customer Self Care" /> 
+<meta name="description" content="Airtel Customer Self Care" /> 
+<title>Home | Airtel Customer Self Care</title>
+<link rel="stylesheet" type="text/css" href="/static/css/login.css" />
+<link rel="icon" href="/static/images/favicon.png" type="image/png" /> 
+<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+<noscript>
+	<style type="text/css">
+        #wrapper{display:none;}
+    </style>
+    <div class="noscript">This Web Application requires a web browser with Javascript enabled.</div>
+</noscript>
+<script type="text/javascript">
+$(document).ready(function() {
+	if($.browser.msie && $.browser.version=="6.0") {
+	$("#wrapper").html('<div class="noscript">This web browser is not compatible with this Web Application.</div>'); 
+	}
+});
+</script>
+</head>
+<body class="login">
+	<form id="LoginForm" action="." method="POST">{% csrf_token %}
+		<div class="container">
+			<div class="topsection">
+				<div class="logo"><img height="65" width="60" src="/static/images/logo2.png" alt="Airtel Logo" /></div>
+				<div class="headers">Airtel Customer Self Care</div>
+			</div>
+			<div class="errorsection">
+				{% if msg %}
+					<div class="errors">
+						{{ msg }}
+					</div>
+				{% endif %}
+				{% if failure_limit %}
+				    <div class="errors">
+						You have exceeded maximum allowed {{failure_limit}} attempts.
+					</div>
+				{% endif %}
+				{% if form.username.errors %}
+					{{ form.username.errors }}
+				{% endif %}
+				{% if form.password.errors %}
+					{{ form.password.errors }}
+				{% endif %}
+			</div>
+			<div class="middlesection">
+				<div class="logininputs">
+					<div class="caption">Username</div>
+					<div class="input"><input id="id_username" name="username" type="text" /></div>
+				</div>
+				<div class="logininputs">
+					<div class="caption">Password</div>
+					<div class="input"><input id="id_password" name="password" type="password" /></div>
+				</div>
+				<div class="logininputs">
+					<button type="submit" id="Login" class="loginbtn">LOGIN &#9658;</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

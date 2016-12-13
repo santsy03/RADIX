@@ -1,0 +1,15 @@
+'''
+configs for telescopic provisioning module
+'''
+TELESCOPIC_PACKAGE_ATTRIBUTES = {}
+# TELESCOPIC_PACKAGE_ATTRIBUTES[ count ] = [price(Ar), volume(Mo), validity(hours), DA, refill_id, UC/UT ID, offer_id]
+TELESCOPIC_PACKAGE_ATTRIBUTES['1'] = [250, 30, 4, 1112, 'MB75', '1021', 12]
+TELESCOPIC_PACKAGE_ATTRIBUTES['2'] = [150, 30, 2, 1113, 'MB76', '1022', 14]
+TELESCOPIC_PACKAGE_ATTRIBUTES['3'] = [0, 50, False, 1114, 'MB77', '1023', 15]
+
+
+TIME_RESTRICTION = dict(hour=16, min=59)
+
+TELESCOPIC_DA = []
+for each in TELESCOPIC_PACKAGE_ATTRIBUTES:
+    TELESCOPIC_DA.append(TELESCOPIC_PACKAGE_ATTRIBUTES[each][3])

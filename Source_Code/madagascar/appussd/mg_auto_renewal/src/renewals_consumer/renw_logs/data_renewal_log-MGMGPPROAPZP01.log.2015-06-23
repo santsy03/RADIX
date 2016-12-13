@@ -1,0 +1,44 @@
+2015-06-23 20:30:46,239 - data_renewal_log-MGMGPPROAPZP01 - INFO - creating queue
+2015-06-23 20:30:46,240 - data_renewal_log-MGMGPPROAPZP01 - INFO - created queue
+2015-06-23 20:30:46,240 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,240 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,240 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,241 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,241 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,242 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,242 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,243 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,243 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,243 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,244 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,244 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,244 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,245 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,245 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,245 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,246 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,246 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,246 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,248 - data_renewal_log-MGMGPPROAPZP01 - INFO - added tasks
+2015-06-23 20:30:46,248 - data_renewal_log-MGMGPPROAPZP01 - INFO - adding workers to pool
+2015-06-23 20:30:46,271 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,279 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,280 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,288 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,305 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,306 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,317 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,326 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,329 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,330 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,336 - data_renewal_log-MGMGPPROAPZP01 - INFO - added threads to pool
+2015-06-23 20:30:46,353 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,364 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,380 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,381 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,389 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,393 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,398 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,403 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,405 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue
+2015-06-23 20:30:46,412 - data_renewal_log-MGMGPPROAPZP01 - DEBUG - ... declaring queue

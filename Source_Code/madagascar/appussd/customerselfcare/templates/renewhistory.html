@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}3G Renewal History, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}3G Renewal History, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}3G Renewal History | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}3G Renewal History{% endblock %}
+
+{% block javascript_code %}
+<script type="text/javascript">
+    function goback() { window.location.href='/3g/'; }
+</script>
+{% endblock %}
+
+{% block primary %}
+<div class="historyheader">
+    Subscriber Number: {{ subscriber }}  <a href="/export_rhistory/{{ subscriber }}">Export Renewal History</a>
+</div>
+<div class="listholder">
+	{% if results|length %}
+		<table width="100%">
+			<tr>
+                <td class="head"><b>Package Name</b></td>
+                <td class="head"><b>Price</b></td>
+                <td class="head"><b>Subscription Date/Time</b></td>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td class="{% cycle 'odd' 'even' %}">{{ row.packagename }}</td>
+                <td class="{% cycle 'odd' 'even' %}">{{ row.price }}</td>
+                <td class="{% cycle 'odd' 'even' %}">{{ row.createddatetime }}</td>
+            </tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<div class="note">
+			No records found.
+		</div>
+	{% endif %}
+    <br />
+    <button id="btncancel" type="button" class="button red" onclick="javascript:goback();">Done, Go Back</button>
+<div> 
+{% endblock %}
+
+{% block secondary %}
+
+{% endblock %}

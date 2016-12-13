@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}Airtel 3G, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}Airtel 3G, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}Airtel 3G | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}Me2u{% endblock %}
+{% block javascript_code %}
+<script type="text/javascript" src="/static/js/scripts.js"></script>
+{% endblock %}
+{% block primary %}
+<div>
+	<div id="mainleft">
+		<div class="search">
+			<form id="me2uform" action="/me2u/" method="post">
+			<div class="sectiontitle">Internet Me2u</div>
+				{% csrf_token %}
+				<div id="heading">
+					<div id="history"></div>
+					<div id="errmsg"></div>
+					<div id="clear"></div>
+				</div>
+				<div id="mymsg"></div>
+				<div class="controls">
+		            MSISDN: <input id="subscriberno" class="searchtext" type="text" placeholder="Subscriber Number"/>
+		            <input class="searchbutton" type="submit" value="GO &#9658;" />
+	                <button id="btnme2ubulk" type="button" class="searchbutton">Bulk Whitelist &#9658;</button>
+		        </div>	        
+			</form>
+			<div id="messages" class="messages"></div>
+		</div>
+	    <div class="whitelistinfo" id="id_info">
+	    <div class='label'></div> <div class='data' id="id_aapplication"></div>
+		<div class='label'>Whitelisted</div> <div class='data' id="id_active"></div>
+		<div class='label'>Whitelist Date</div> <div class='data' id="id_wdate"></div>
+	    <div class='label'>PIN Status</div> <div class='data' id="id_pinstatus"></div>
+		<div class='label'></div> <div class='data' id="id_msisdn">
+
+		<div class="actions">
+	        <button id="btnwhitelist" type="button" class="buttons">Whitelist &#187;</button>
+            <button id="btnunlock" type="button" class="buttons">Unlock &#187;</button>
+            <button id="btnreset" type="button" class="buttons">Reset &#187;</button>
+	    </div>
+		</div>
+	</div>
+</div>
+<div id="mainright">
+    <p>Me2u subscriber History</p>
+	<div id="me2usum"></div>
+	<button id="me2uhistory" type="button" class="buttons">More &#187;</button>
+</div>
+</div>
+{% endblock %}
+{% block secondary %}
+<div style='display:none'>
+    <div id='me2u_bulk' style='padding:10px; background:#fff;'>
+        <p>Me2u Bulk Whitelisting (Maximum 10,000). MSISDN format is numbers ONLY.</p>
+        <div id="results"></div>
+        <form id="uploadwlist" enctype="multipart/form-data" method="post">
+           {% csrf_token %}
+           <div class="inputs">
+			   <div class="label"><label for="">Select Action</label></div>
+			   <div class="input">{{ form.actions }}</div>
+		   </div>
+           <div class="inputs">
+               <div class="label"><label for="">Select file for Upload</label></div>
+               <div id="fupload"><input id="msisdns" name="msisdns" type="file" /></div>
+               <br>
+               <input type="submit" value="Proceed &#9658;" id="submit" class="searchbutton" />
+           </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

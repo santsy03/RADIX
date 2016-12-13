@@ -1,0 +1,17 @@
+***************
+*** 75,81 ****
+  responses['message_2']['txt-1'] = ("You have asked %s to call you back . "
+          +"Out of credit ? No worry ,use SOS CREDIT. Press *500#")
+  responses['message_2']['txt-2'] = ("Nangataka ho antsoin ny laharana %s"
+-         +" ianao. Mila miantso maika ve ianao nefa tsy manana fahana?"
+          +" ampiasao SOS Credit, antsoy *500#")
+  responses['message_2']['txt-3'] = ("Vous avez demande a etre rappele par %s."
+          +" En panne de credit ? SOS Credit est la solution. Tapez *500#")
+--- 75,81 ----
+  responses['message_2']['txt-1'] = ("You have asked %s to call you back . "
+          +"Out of credit ? No worry ,use SOS CREDIT. Press *500#")
+  responses['message_2']['txt-2'] = ("Nangataka ho antsoin ny laharana %s"
++         +" ianao. Mila miantso maika ve ianao nefa tsy manana fahana,"
+          +" ampiasao SOS Credit, antsoy *500#")
+  responses['message_2']['txt-3'] = ("Vous avez demande a etre rappele par %s."
+          +" En panne de credit ? SOS Credit est la solution. Tapez *500#")

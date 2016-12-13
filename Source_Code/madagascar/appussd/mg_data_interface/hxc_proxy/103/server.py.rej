@@ -1,0 +1,69 @@
+--- hxc_proxy/103/server.py	Sun May 31 20:20:11 2015 +0300
++++ hxc_proxy/103/server.py	Thu Jun 25 19:36:24 2015 +0300
+@@ -3,10 +3,8 @@
+ from datetime import datetime
+ 
+ import xmlrpclib
+-from time import sleep,time
+-from twisted.web import server,xmlrpc
+-from twisted.internet import reactor,threads
+-from twisted.protocols.policies import TimeoutMixin
++from twisted.web import xmlrpc
++from twisted.internet import threads
+ 
+ from mg_data_interface.hxc_proxy.core import get_performance
+ from mg_data_interface.hxc_proxy.core import getSubscriberType
+@@ -16,6 +14,7 @@
+ from configs.config import databases
+ from utilities.secure.core import decrypt
+ from utilities.logging.core import log
++from utilities.memcache.sessions import SessionManager
+ 
+ from mg_data_interface.hxc_proxy.config import error_ussd
+ from mg_data_interface.hxc_proxy.config import MSISDNS as msisdns
+@@ -32,9 +31,7 @@
+         self.allowNone = 1
+         self.useDateTime = 1
+         self.response = {}
+-        self.sessions = {}
+-        self.sessionTimes = {}
+-        reactor.callInThread(self.sessionManager)
++        self.sessions = SessionManager(expiry=240, prefix='Mgd103Hxc')
+     
+     def debugging(self, txt): 
+         return {'RESPONSE_CODE':'0','SESSION_ID':'1','SEQUENCE':'1','USSD_BODY':txt,'REQUEST_TYPE':'RESPONSE','END_OF_SESSION':'True'}
+@@ -99,22 +96,6 @@
+             get_performance(resources, start_time)
+             print "resp returned: %s" % str(resp)
+             return resp
+-    
+-    def sessionManager(self):
+-        nextCheck = int(time())
+-        while(1):
+-            expiredSessionsTime = str(nextCheck-240)
+-            if self.sessionTimes.has_key(expiredSessionsTime):
+-                    for session in self.sessionTimes[expiredSessionsTime]:
+-                        try:
+-                            del self.sessions[session]
+-                        except Exception,e:
+-                            print 'could not delete session from sessions store - '+str(e)
+-                        else:
+-                            print 'session: '+str(session)+' expired'
+-                    del self.sessionTimes[expiredSessionsTime]
+-            nextCheck += 1
+-            sleep(1)
+ 
+     def getSession(self,resources):
+         parameters = resources['parameters']
+@@ -145,11 +126,6 @@
+             #session['language'] = 'txt-1'#getsubcriberlanguage(resources)
+             #session['type'] = 'prepaid'#getsubscribertype(resources)
+             self.sessions[str(sessionId)] = session
+-            sessionTime = str(int(time()))
+-            if self.sessionTimes.has_key(sessionTime):
+-                self.sessionTimes[sessionTime].append(sessionId)
+-            else:
+-                self.sessionTimes[sessionTime] = [sessionId]
+         session['ussdRequestString'] = request
+         session['service_key'] = parameters['SERVICEKEY']
+         return session

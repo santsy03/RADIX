@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block page_meta_title %}Airtel 3G, Airtel Customer Self Care{% endblock %}
+{% block page_meta_description %}Airtel 3G, Airtel Customer Self Care{% endblock %}
+{% block page_title %}Airtel 3G | Airtel Customer Self Care{% endblock %}
+{% block page_header %}Airtel 3G{% endblock %}
+{% block javascript_code %}
+<script type="text/javascript" src="/static/js/3g.js"></script>
+           
+{% endblock %}
+
+{% block primary %}
+<div>
+<div class="search">
+    <form id="searchform">
+    <div class="sectiontitle">Airtel 3G</div>
+        <div id="actions">
+        <div id="lactions">
+        <div class="controls">
+            MSISDN: <input id="subscriberno" class="searchtext" type="text" placeholder="Subscriber Number"/>
+            <input class="searchbutton" type="submit" value="GO &#9658;" />
+        </div>
+        </div>
+        <div id="ractions">
+        <div id="messages" class="messages"> </div>
+        <div id="progress" class="progress"></div>
+        </div>
+        </div>
+    </form>
+</div>  
+<div class="clear"></div>
+<div id="errmsg"></div>
+<div class="subscriberinfo" id="id_info">
+    <div class="infos">
+        <div class='label'>Subscriber Number:</div> <div class='data' id="id_subscriberno">-</div>
+    </div>
+    <div class="infos">
+        <div class='label'>Prepaid:</div> <div class='data' id="id_prepaid">-</div>
+    </div>
+    <div class="infos">
+        <div class='label'>Balance:</div> <div class='data' id="id_balance">-</div>
+    </div>
+</div>
+<div id="tableholder"></div>
+<div class="clear"></div>
+<div class="actions" id="id_trans">
+    <button id="btnadd" type="button" class="buttons">Subscribe to a Service &#187;</button> &nbsp; 
+    <button id="btnhistory" type="button" class="buttons">Subscriber History &#187;</button>
+    <button id="btnrenewstop" type="button" class="buttons">Stop Auto-Renewal &#187;</button>
+</div>
+</div>
+{% endblock %}
+
+{% block secondary %}
+<div style="display:none">
+    <div id="popup1">
+        <div id="servicemessages"></div>
+
+        <div class="label"><label for="">3G Service</label></div>
+        <div class="input">{{ form.service }}</div>
+        
+        <div id="tdbundle" class="addsub">
+            <div class="label"><label for="">Internet Bundles</label></div>
+            <div class="input">{{ form.bundles }}</div>
+        </div>                
+            
+        <div id="tdautorenew"  class="addsub">
+            <div class="label"><label for="">Auto renew</label></div>
+            <div class="input">{{ form.autorenew }}</div>
+        </div>
+        <div id="addSubscription" class="addsub">
+            <div class="label"></div>
+            <div class="input">
+                <button id="btnsave" onclick="javascript:addSubscription();" type="button" class="button red">Add Subscription</button>
+            </div>
+        
+        </div>
+    </div>
+</div>
+{% endblock %}

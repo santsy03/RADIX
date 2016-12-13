@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block page_meta_title %}Upload Users, Airtel Customer Self Care{% endblock %}
+
+{% block page_meta_description %}Upload Users, Airtel Customer Self Care{% endblock %}
+
+{% block page_title %}Upload Users | Airtel Customer Self Care{% endblock %}
+
+{% block page_header %}Upload Users{% endblock %}
+
+{% block javascript_code %}
+<script type="text/javascript">
+    function goback() { window.location.href = '/3g/'; }
+</script>
+{% endblock %}
+
+{% block primary %}
+<div id="messages"></div>
+<div class="wrappererrors">
+	{% if msg %}
+		<p class="okmsg">
+			{{ msg }}
+		</p>
+	{% endif %}
+	{% if form.file.errors %}
+		{{ form.file.errors }}
+	{% endif %}
+</div>
+<div id="fieldset" class="fieldset">
+	<form enctype="multipart/form-data" action="" method="POST">
+		<div class="controlheader">Select File</div>
+		<div class="controlholder">{{ form.file }}</div>
+
+		<div class="buttonholder">
+			<button id="btnsubmit" type="submit" class="button red">Upload File</button>
+			<button id="btncancel" type="button" class="button red" onclick="javascript:goback();">Done, Go Back</button>
+		</div>
+	</form>
+</div> 
+{% endblock %}
+
+{% block secondary %}
+
+{% endblock %}
